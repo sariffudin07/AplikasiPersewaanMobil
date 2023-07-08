@@ -17,7 +17,7 @@
                             <select class="select2 form-control" name="pengguna_id">
                                 <option value="null">Pilih Pengguna</option>
                                 @forelse ($pengguna as $item)
-                                    <option {{$pemesanan->pengguna_id == $item->id ? "selected" : ""}} value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    <option {{ isset($pemesanan) ? ($pemesanan->pengguna_id == $item->id ? "selected" : "") : ""}} value="{{ $item->id }}">{{ $item->nama }}</option>
                                 @empty
                                     <option value="null">Tidak ada pengguna</option>
                                 @endforelse
@@ -33,7 +33,7 @@
                             <select class="select2 form-control" name="mobil_id">
                                 <option value="null">Pilih Mobil</option>
                                 @forelse ($mobil as $item)
-                                    <option {{$pemesanan->mobil_id == $item->id ? "selected" : ""}} value="{{ $item->id }}">{{ $item->getFull() }}</option>
+                                    <option {{isset($pemesanan) ? ($pemesanan->mobil_id == $item->id ? "selected" : "") : ""}} value="{{ $item->id }}">{{ $item->getFull() }}</option>
                                 @empty
                                     <option value="null">Tidak ada mobil</option>
                                 @endforelse
